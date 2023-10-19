@@ -33,6 +33,7 @@ export function init() {
 
     state.inputNumber.addEventListener('change', handleinputNumberChange);
 
+    state.btnClear.addEventListener('click', handleBtnClearClick);
 }
 
 function handleinputNumberChange(event) {
@@ -42,6 +43,24 @@ function handleinputNumberChange(event) {
     else {
         setFormError("number", "");
     }
+}
+
+function handleBtnClearClick(event) {
+    event.preventDefault();
+    clearForm();
+}
+
+function clearForm() {
+    state.inputCep.value = "";
+    state.inputCity.value ="";
+    state.inputNumber.value ="";
+    state.inputStreet.value ="";
+
+    setFormError("cep", "");
+    setFormError("number", "");
+
+    state.inputCep.focus();
+
 }
 
 function setFormError(key, value) {
